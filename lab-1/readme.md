@@ -100,3 +100,30 @@ HUMAN has put a X in cell 9
                             | X  | O
                         --------------
                             | O  | X
+
+
+
+## Vacume 
+PS C:\Users\student\Desktop\RAJA> python vacume.py
+Initial Grid:
+ [[3 5 5 5 9]
+ [6 7 9 3 4]
+ [7 7 1 4 4]
+ [6 8 2 9 2]
+ [5 1 3 4 8]]
+Moving from (0, 0) to (2, 3)
+Cleaning cell (2, 3) with garbage 4
+Moving from (2, 3) to (0, 1)
+Cleaning cell (0, 1) with garbage 5
+Moving from (0, 1) to (4, 4)
+Cleaning cell (4, 4) with garbage 8
+Moving from (4, 4) to (1, 2)
+Cleaning cell (1, 2) with garbage 9
+All garbage cleaned!
+Final Grid:
+ [[3 0 5 5 9]
+ [6 7 0 3 4]
+ [7 7 1 0 4]
+ [6 8 2 9 2]
+ [5 1 3 4 0]]
+PS C:\Users\student\Desktop\RAJA>
