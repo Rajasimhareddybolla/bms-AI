@@ -1,27 +1,34 @@
 def dls(tree, node, goal, depth, path):
-    path.append(node)  # Add current node to trace
+    print(f"Visiting node: {node}, Depth left: {depth}")
+    path.append(node)
+
     if depth == 0:
-        return node == goal
-    if depth > 0:
-        for child in tree.get(node, []):
-            if dls(tree, child, goal, depth - 1, path):
-                return True
-    path.pop()  # Backtrack if not found
+        if node == goal:
+            print(f"Found goal at node: {node}")
+            return True
+        else:
+            path.pop()
+            return False
+
+    for child in tree.get(node, []):
+        if dls(tree, child, goal, depth - 1, path):
+            return True
+
+    path.pop()
     return False
 
 def iddfs(tree, start, goal, max_depth):
     for depth in range(max_depth + 1):
+        print(f"\Starting depth-limited search at depth {depth}")
         path = []
-        print(f"\n🔍 Searching at depth {depth}")
         if dls(tree, start, goal, depth, path):
-            print(f"✅ Found goal '{goal}' at depth {depth}")
-            print(f"📌 Trace: {' → '.join(path)}")
+            print(f"\ Goal '{goal}' found at depth {depth}")
+            print(f" Path: {' → '.join(path)}")
             return True
         else:
-            print(f"📌 Trace at depth {depth}: {' → '.join(path)}")
-    print(f"\n❌ Goal '{goal}' not found within depth {max_depth}")
+            print(f" Goal not found at depth {depth}")
+    print(f"\Goal '{goal}' not found within depth {max_depth}")
     return False
-
 
 # Example usage
 tree = {
